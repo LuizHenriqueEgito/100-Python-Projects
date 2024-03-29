@@ -1,6 +1,6 @@
 Projects
 [ ] 1 - Snake Game
-[ ] 2 - SistemaDeLogin: Cadastro de usuario com interface e banco de dados
+[x] 2 - SistemaDeLogin: Cadastro de usuario com interface e banco de dados
 [ ] 3 - Pomodoro no celular (use Kivy)
 [ ] 4 - Calendario com rotina de estudos
 [ ] 5 - Blog simples usando Fast API
@@ -35,4 +35,5 @@ Projects
 [ ] 34 - Virando o Pytorch do avesso
 [ ] 35 - Crie uma API (inútil mas legal) usando Flask
 [ ] 36 - Virando o SQLAlchemy do avesso
+[ ] 37 - Virando o matplotlib do avesso
 
