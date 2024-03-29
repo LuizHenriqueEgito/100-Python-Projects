@@ -1,0 +1,38 @@
+Projects
+[ ] 1 - Snake Game
+[ ] 2 - SistemaDeLogin: Cadastro de usuario com interface e banco de dados
+[ ] 3 - Pomodoro no celular (use Kivy)
+[ ] 4 - Calendario com rotina de estudos
+[ ] 5 - Blog simples usando Fast API
+[ ] 6 - Blog simples usando Flask
+[ ] 7 - Sistema backend de vendas usando (Flask | FastAPI) com SQLModel ou SQLAlchemy
+[ ] 8 - Sistema de recomendações
+[ ] 9 - Sistema de reconhecimento com algum modelo já pronto, tenha uma interface
+[ ] 10 - Bomb it com pygame
+[ ] 11 - Coloque algoritmos geneticos no exercicio 1 snake e no 10 bomb it
+[ ] 12 - Sistema de cameras que te alerte via email com uma imagem suspeita
+[ ] 13 - Pedra Papel Tesoura
+[ ] 14 - Web Scrap de sites de noticias, salve e trate o texto titulo noticia e data
+[ ] 15 - Download de PDFs da internet como relatórios gerencias de empresas
+[ ] 16 - Web Scrap em sites de vendas com o produto desejado e seu preço
+[ ] 17 - Web Scrap em sites de viagem para pegar passagens baratas
+[ ] 18 - Crie um arquivo PDF
+[ ] 19 - Criandos 20 geradores quaisquer
+[ ] 20 - Criando 20 decorators quaisquer
+[ ] 21 - Criando 20 classes quaisquer
+[ ] 22 - Crie um site estatico
+[ ] 23 - Virando o Pandas do Avesso
+[ ] 24 - Virando o numpy do Avesso
+[ ] 25 - Probabiliades e Estatica com Python
+[ ] 26 - Faça um acompanhamento com pysimplegui sobre ações
+[ ] 27 - Deixe mais robusto coloque gráficos o item 26
+[ ] 28 - Coloque medidas de valuation ao pesquisar uma ação (coloque noticias atuais)
+[ ] 29 - Crie uma carteira para acompanhamento
+[ ] 30 - integre tudo projeto 26 ao 30
+[ ] 31 - Criando 10 tabelas com sqlalchemy e cruzando elas
+[ ] 32 - Criando 10 tabelas com SQLModel e cruzando elas
+[ ] 33 - Virando o Pytest do avesso
+[ ] 34 - Virando o Pytorch do avesso
+[ ] 35 - Crie uma API (inútil mas legal) usando Flask
+[ ] 36 - Virando o SQLAlchemy do avesso
+
