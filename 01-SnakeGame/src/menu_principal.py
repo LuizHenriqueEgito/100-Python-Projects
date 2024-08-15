@@ -30,14 +30,13 @@ class MenuInicial:
         image_entrada_path = Path('src/images/img_entrda.png')
         image_entrada = pygame.image.load(image_entrada_path).convert_alpha()
         screen.blit(image_entrada, (150,0))
-        
-
 
         running = True
         while running:
             if jogar_button.draw(screen=screen):
                 print('START')
-                return 'START'
+                pygame.quit()
+                return True
             if exit_button.draw(screen=screen):
                 running = False
             for event in pygame.event.get():

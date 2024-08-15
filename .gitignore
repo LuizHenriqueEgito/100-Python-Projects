@@ -1,2 +1,3 @@
 env_all_projects
 __pycache__/
+.vscode

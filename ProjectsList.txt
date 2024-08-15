@@ -1,16 +1,15 @@
 Projects
-[ ] 1 - Snake Game
+[x] 1 - Snake Game v1 -> Snake Game v2
 [x] 2 - SistemaDeLogin: Cadastro de usuario com interface e banco de dados
-[ ] 3 - Pomodoro no celular (use Kivy)
+[x] 3 - Pomodoro (Kivy)
+[ ] 5 - Faça um sistema de locação de automoveis
 [ ] 4 - Calendario com rotina de estudos
-[ ] 5 - Blog simples usando Fast API
-[ ] 6 - Blog simples usando Flask
-[ ] 7 - Sistema backend de vendas usando (Flask | FastAPI) com SQLModel ou SQLAlchemy
+[ ] 7 - Sistema backend de vendas usando (Flask (SQLAlchemy) | FastAPI (SQLModel))
 [ ] 8 - Sistema de recomendações
 [ ] 9 - Sistema de reconhecimento com algum modelo já pronto, tenha uma interface
-[ ] 10 - Bomb it com pygame
-[ ] 11 - Coloque algoritmos geneticos no exercicio 1 snake e no 10 bomb it
-[ ] 12 - Sistema de cameras que te alerte via email com uma imagem suspeita
+[ ] 10 - Faça uma aplicação utilizando Langchain
+[ ] 11 - Coloque algoritmos geneticos no exercicio 1 snake
+[ ] 12 - Sistema de cameras que te alerte via email uma imagem suspeita
 [ ] 13 - Pedra Papel Tesoura
 [ ] 14 - Web Scrap de sites de noticias, salve e trate o texto titulo noticia e data
 [ ] 15 - Download de PDFs da internet como relatórios gerencias de empresas
@@ -20,20 +19,22 @@ Projects
 [ ] 19 - Criandos 20 geradores quaisquer
 [ ] 20 - Criando 20 decorators quaisquer
 [ ] 21 - Criando 20 classes quaisquer
-[ ] 22 - Crie um site estatico
+[ ] 22 - Crie seu site estatico
 [ ] 23 - Virando o Pandas do Avesso
-[ ] 24 - Virando o numpy do Avesso
+[ ] 24 - Virando o Numpy do Avesso
 [ ] 25 - Probabiliades e Estatica com Python
 [ ] 26 - Faça um acompanhamento com pysimplegui sobre ações
 [ ] 27 - Deixe mais robusto coloque gráficos o item 26
 [ ] 28 - Coloque medidas de valuation ao pesquisar uma ação (coloque noticias atuais)
 [ ] 29 - Crie uma carteira para acompanhamento
-[ ] 30 - integre tudo projeto 26 ao 30
+[ ] 30 - Crie uma APi inutil mas legal usando FAST API
 [ ] 31 - Criando 10 tabelas com sqlalchemy e cruzando elas
 [ ] 32 - Criando 10 tabelas com SQLModel e cruzando elas
 [ ] 33 - Virando o Pytest do avesso
 [ ] 34 - Virando o Pytorch do avesso
-[ ] 35 - Crie uma API (inútil mas legal) usando Flask
+[ ] 35 - Crie uma API (inútil mas legal) usando FAST API
 [ ] 36 - Virando o SQLAlchemy do avesso
 [ ] 37 - Virando o matplotlib do avesso
-
+[ ] 38 - Virando o Pydantic do avesso
+[ ] 39 - Virando o logging do avesso
+[ ] 40 - Crie um agente com aprendizado por reforço (investidor) que realiza uma politica especifica na sua carteira (Tente usar Langchain)
