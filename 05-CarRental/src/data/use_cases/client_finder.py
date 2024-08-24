@@ -6,4 +6,17 @@ class ClientFinder(ClientFinderInterface):
         self.__clients_repository = clients_repository
 
     def find(self, cpf: str) -> dict:
-        pass
+        if 8 < len(cpf) > 10:
+            raise Exception('CPF muito curto') 
+
+        clients = self.__clients_repository.select_client(cpf)
+        if clients == []:
+            raise Exception('CPF nao encontrado')
+        
+        response = {
+            "type": "Clients",
+            "count": len(clients),
+            "attributes": clients
+        }
+        
+        return response
