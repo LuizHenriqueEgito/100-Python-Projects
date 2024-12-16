@@ -2,3 +2,4 @@ env_all_projects
 __pycache__/
 .vscode
 **/credentials.toml
+env

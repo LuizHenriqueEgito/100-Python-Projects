@@ -2,7 +2,7 @@ Projects
 [x] 1 - Snake Game v1 -> Snake Game v2
 [x] 2 - SistemaDeLogin: Cadastro de usuario com interface e banco de dados
 [x] 3 - Pomodoro (Kivy)
-[ ] 5 - Faça um sistema de locação de automoveis
+[x] 5 - Faça um sistema de locação de automoveis
 [ ] 4 - Calendario com rotina de estudos
 [ ] 7 - Sistema backend de vendas usando (Flask (SQLAlchemy) | FastAPI (SQLModel))
 [ ] 8 - Sistema de recomendações
