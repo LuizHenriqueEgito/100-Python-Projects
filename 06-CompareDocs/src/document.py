@@ -2,7 +2,7 @@ from tiktoken import encoding_for_model
 from typing import Any
 
 
-N_TOKENS_TO_SMALL_DOC = 5000
+N_TOKENS_TO_SMALL_DOC = 50
 class Document:
     def __init__(self, id: str, text: str):
         self.id = id
