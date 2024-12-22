@@ -1,20 +1,12 @@
 from dataclasses import dataclass
-from src.prompt import prompt_template
-import json
+from src.document import Document
+
 
 @dataclass
 class JoogleDitto:
-    document_i: str
-    document_j: str
-    prompt: str = prompt_template
+    documents_to_compare: list[tuple[Document, Document]]
 
-    def compare(
-        self, 
-        model: str = 'gpt-4o-mini', 
-        prompt: str = prompt
-    ):
-        ...
+    def compare(self) -> list[dict[str, str]]:  # {'documentosComparados': 'docX comparado com docY', 'comparacao': {'resumo': '', 'topicosSemelhantes': '', 'topicosdiferentes': ''}}
+        pass
 
-    def _fmt_comparison(self) -> str:
-        # use json
-        ...
+    

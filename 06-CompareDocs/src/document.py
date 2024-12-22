@@ -1,37 +1,29 @@
 from tiktoken import encoding_for_model
-# from enum import IntEnum
+from typing import Any
 
 
-# class ModelMaxTokens(IntEnum):
-#     GPT_3_5 = 10
-#     GPT_4o = 20
-#     GPT_3_5_TURBO = 30
-MODEL_CONFIGS = {
-    'gpt-3.5-turbo': 16_385,     
-    'gpt-3.5-turbo-16k': 16_385, 
-    'gpt-4': 8_192,              
-    'gpt-4-32k': 32_768,         
-    'gpt-4-turbo': 128_000,      
-    'gpt-4o': 128_000,           
-    'gpt-4o-mini': 128_000
-}
-
-
+N_TOKENS_TO_SMALL_DOC = 5000
 class Document:
-    def __init__(
-            self,
-            document: str,
-            model: str
-    ):
-        self.document = self._preprocess(document)
-        self.encodding = encoding_for_model(model)
+    def __init__(self, id: str, text: str):
+        self.id = id
+        self.text = text
+        self.small_doc = self._is_small_doc()
+        self.preprocess_text: Any | None = None  # TODO: remova o Any
 
     def __len__(self) -> int:
-        tokenized = self.encoding.encode(self.document)
+        encodding = encoding_for_model('gpt-4o-mini')
+        tokenized = encodding.encode(self.text)
         return len(tokenized)
+
+    def __str__(self):
+        # return f'{__class__.__name__}(id={self.id}, text={self.text[:10]})'
+        return (
+            f'{__class__.__name__}(id={self.id}, small_doc={self.small_doc}' \
+            f', preprocess_text={self.preprocess_text[:15] if self.preprocess_text else ''})'
+        )
     
-    def _preprocess(self):
-        if len_doc := len(self) > MODEL_CONFIGS[self.model]:
-            # trunca o texto
-            return self.encodding.decoding(self.document[:len_doc])
-        return self.document
+    def __repr__(self):
+        return self.__str__()
+    
+    def _is_small_doc(self):
+        return len(self) < N_TOKENS_TO_SMALL_DOC

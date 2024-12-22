@@ -1,18 +1,48 @@
-from src.event_input import EventInput
-from src.document import Document
-from src.joogle_ditto import JoogleDitto
+if __name__ == '__main__':
+    from src.parse_event import EventInput
+    from src.document import Document
+    from src.document_pool import DocumentPool
+    from src.preprocess_document import FactoryPreprocessDoc
+    from src.joogle_ditto import JoogleDitto
+    from pathlib import Path
 
-def lambda_handler(event, context):
-    event_input = EventInput.from_event(event)
-    documents = [Document(doc) for doc in event_input.documents]
-    doc_i, doc_j = documents
-    if doc_i == doc_j:
-        return {}
-    joggle_ditto = JoogleDitto(doc_i, doc_j)
-    model = event_input.model
-    prompt = event_input.prompt
-    comparison = joggle_ditto.compare(
-        model=model,
-        prompt=prompt
+    event = {
+        'body': {
+            'method': 'llm',
+            'model': 'modelo xpto',
+            'documents': [
+                {
+                    'id': '1', 
+                    'text': Path('data/documentA.txt').read_text(encoding='utf-8')
+                },
+                {
+                    'id': '2', 
+                    'text': Path('data/documentB.txt').read_text(encoding='utf-8')
+                },
+                {
+                    'id': '3', 
+                    'text': Path('data/documentA-inverse.txt').read_text(encoding='utf-8')
+                },
+                {
+                    'id': '4', 
+                    'text': Path('data/documentB-inverse.txt').read_text(encoding='utf-8')
+                }
+            ]
+        }
+    }
+    event_input = EventInput.parse_event(event)
+    documents = [
+        Document(**document) for document in event_input.documents
+    ]
+    preprocess = FactoryPreprocessDoc.get_preprocess(preprocessor=event_input.method)
+    documents_pool = DocumentPool(
+        preprocess=preprocess,
+        documents=documents
     )
-    return comparison
+    documents_to_compare = documents_pool.combines_documents()
+    print(documents_to_compare)
+    print(documents_pool.preprocess_pool())
+    # ditto = JoogleDitto(documents_to_compare)
+    # result = ditto.compare()
+    
+    
