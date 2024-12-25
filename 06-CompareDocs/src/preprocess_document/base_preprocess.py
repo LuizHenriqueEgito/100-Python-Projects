@@ -7,6 +7,4 @@ class BasePreprocess(ABC):
         pass
 
     def requires_process(self, documents_pair: tuple[Document, Document]) -> bool:
-        if not all([doc.small_doc for doc in documents_pair]):
-            return True
-        return False
+        return not all(doc.small_doc for doc in documents_pair)

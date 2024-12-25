@@ -16,11 +16,7 @@ class Document:
         return len(tokenized)
 
     def __str__(self):
-        # return f'{__class__.__name__}(id={self.id}, text={self.text[:10]})'
-        return (
-            f'{__class__.__name__}(id={self.id}, small_doc={self.small_doc}' \
-            f', preprocess_text={self.preprocess_text[:15] if self.preprocess_text else ''})'
-        )
+        return f"{type(self).__name__}(id={self.id}, small_doc={self.small_doc})"
     
     def __repr__(self):
         return self.__str__()

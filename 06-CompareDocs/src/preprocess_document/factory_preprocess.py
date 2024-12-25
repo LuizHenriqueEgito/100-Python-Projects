@@ -3,18 +3,27 @@ from src.preprocess_document.lda_preprocess import LDAPreprocess
 from src.preprocess_document.llm_agent_preprocess import LLMPreprocess
 from src.preprocess_document.minhash_preprocess import MinHashPreprocess
 from src.preprocess_document.prefixtrie_preprocess import PrefixTriePreprocess
+from src.preprocess_document.default_preprocess import DefaultPreprocess
 
 class FactoryPreprocessDoc:
     @staticmethod
-    def get_preprocess(preprocessor: str) -> Self:
-        match preprocessor:
+    def get_preprocess(
+        preprocessor_method: str, 
+        user_topics: list[str] | None = None
+    ) -> Self:
+        match preprocessor_method:
             case 'lda':
-                return LDAPreprocess()
+                print('prep: LDAPreprocess')
+                return LDAPreprocess(user_topics)
             case 'minhash':
-                return MinHashPreprocess()
+                print('prep: MinHashPreprocess')
+                return MinHashPreprocess(user_topics)
             case 'llm':
-                return LLMPreprocess()
+                print('prep: LLMPreprocess')
+                return LLMPreprocess(user_topics)
             case 'trie':
-                return PrefixTriePreprocess()
-            case _:
-                raise('No preprocess has been defined...')
+                print('prep: PrefixTriePreprocess')
+                return PrefixTriePreprocess(user_topics)
+            case '' | 'default':
+                print('prep: DefaultPreprocess')
+                return DefaultPreprocess()

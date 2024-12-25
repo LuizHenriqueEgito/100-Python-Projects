@@ -21,9 +21,16 @@ class DocumentPool:
 
     def preprocess_pool(self) -> list:
         with ProcessPoolExecutor() as executor:
-            results = list(executor.map(self.process_pair, self.documents_to_compare, [self.preprocess] * len(self.documents_to_compare)))
+            results = list(
+                executor.map(
+                    self.process_pair,
+                    [doc_pair for doc_pair in self.documents_to_compare]
+                )
+            )
+        print(f'{results=}')
+        print('############ fim ############')
+        self.documents_to_compare = results
         return results
 
-    @staticmethod
-    def process_pair(doc_pair, preprocess: BasePreprocess):
-        return preprocess.process(doc_pair)
+    def process_pair(self, doc_pair):
+        return self.preprocess.process(doc_pair)
