@@ -3,8 +3,8 @@ from concurrent.futures import ProcessPoolExecutor
 from src.preprocess_document.base_preprocess import BasePreprocess
 from src.document import Document
 
+from configs import N_DOCS_TO_COMPARE
 
-N_DOCS_TO_COMPARE = 2  # nº documentos a serem comparados
 
 class DocumentPool:
     def __init__(
@@ -27,10 +27,8 @@ class DocumentPool:
                     [doc_pair for doc_pair in self.documents_to_compare]
                 )
             )
-        print(f'{results=}')
-        print('############ fim ############')
         self.documents_to_compare = results
         return results
 
     def process_pair(self, doc_pair):
-        return self.preprocess.process(doc_pair)
+        return self.preprocess.processing(doc_pair)

@@ -2,7 +2,7 @@ from src.preprocess_document.base_preprocess import BasePreprocess
 from src.document import Document
 
 class PrefixTriePreprocess(BasePreprocess):
-    def process(self, documents_pair: tuple[Document, Document]) -> tuple[Document, Document]:
+    def processing(self, documents_pair: tuple[Document, Document]) -> tuple[Document, Document]:
         """
         docstring
         """

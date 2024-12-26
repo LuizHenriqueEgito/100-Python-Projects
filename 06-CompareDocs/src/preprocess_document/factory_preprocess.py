@@ -13,17 +13,12 @@ class FactoryPreprocessDoc:
     ) -> Self:
         match preprocessor_method:
             case 'lda':
-                print('prep: LDAPreprocess')
                 return LDAPreprocess(user_topics)
             case 'minhash':
-                print('prep: MinHashPreprocess')
                 return MinHashPreprocess(user_topics)
             case 'llm':
-                print('prep: LLMPreprocess')
                 return LLMPreprocess(user_topics)
             case 'trie':
-                print('prep: PrefixTriePreprocess')
                 return PrefixTriePreprocess(user_topics)
             case '' | 'default':
-                print('prep: DefaultPreprocess')
                 return DefaultPreprocess()

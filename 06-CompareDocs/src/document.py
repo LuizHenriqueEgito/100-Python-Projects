@@ -1,14 +1,12 @@
 from tiktoken import encoding_for_model
-from typing import Any
+from configs import N_TOKENS_TO_SMALL_DOC
 
-
-N_TOKENS_TO_SMALL_DOC = 50
 class Document:
     def __init__(self, id: str, text: str):
         self.id = id
         self.text = text
         self.small_doc = self._is_small_doc()
-        self.preprocess_text: Any | None = None  # TODO: remova o Any
+        self.preprocess_text: dict | None = None
 
     def __len__(self) -> int:
         encodding = encoding_for_model('gpt-4o-mini')
