@@ -1,0 +1,16 @@
+[project]
+name = "06-comparedocs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain-core>=0.3.22",
+    "langchain>=0.3.10",
+    "langgraph>=0.2.56",
+    "openai>=1.57.0",
+    "langchain-openai>=0.2.12",
+    "langchainhub>=0.1.21",
+    "langchain-experimental>=0.3.3",
+    "icecream>=2.1.3",
+]

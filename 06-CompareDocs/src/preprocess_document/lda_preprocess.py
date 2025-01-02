@@ -1,9 +1,9 @@
 from src.preprocess_document.base_preprocess import BasePreprocess
-from src.document import Document
+from src.utils_typing import PairDocuments
 
 
 class LDAPreprocess(BasePreprocess):
-    def processing(self, documents_pair: tuple[Document, Document]) -> tuple[Document, Document]:
+    def process(self, documents_pair: PairDocuments) -> PairDocuments:
         """
         docstring
         """
@@ -14,7 +14,7 @@ class LDAPreprocess(BasePreprocess):
             documents_pair = self.apply(documents_pair)
         return documents_pair
     
-    def apply(self, documents_pais: tuple[Document, Document]) -> tuple[Document, Document]:
+    def apply(self, documents_pais: PairDocuments) -> PairDocuments:
         """
         docstring
         retorna os documentos com .preprocess_text já chunckiado por similaridade

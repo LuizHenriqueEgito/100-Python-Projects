@@ -6,7 +6,7 @@ class Document:
         self.id = id
         self.text = text
         self.small_doc = self._is_small_doc()
-        self.preprocess_text: dict | None = None
+        # self.preprocess_text: dict | None = None
 
     def __len__(self) -> int:
         encodding = encoding_for_model('gpt-4o-mini')
@@ -15,7 +15,7 @@ class Document:
 
     def __str__(self):
         return f"{type(self).__name__}(id={self.id}, small_doc={self.small_doc})"
-    
+
     def __repr__(self):
         return self.__str__()
     

@@ -1,10 +1,13 @@
 from typing import Self
+
 from src.preprocess_document.lda_preprocess import LDAPreprocess
 from src.preprocess_document.llm_agent_preprocess import LLMPreprocess
 from src.preprocess_document.minhash_preprocess import MinHashPreprocess
 from src.preprocess_document.prefixtrie_preprocess import PrefixTriePreprocess
 from src.preprocess_document.default_preprocess import DefaultPreprocess
 
+
+# SimpleFactory
 class FactoryPreprocessDoc:
     @staticmethod
     def get_preprocess(
