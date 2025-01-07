@@ -11,47 +11,44 @@ from src.prompt_utils import (
 
 
 # Use o async do LLM se tiver mais de 2 comparações use o async ou use o sempre
-class DittoDocuments:
-    def __init__(self, preproces_pair_docs):
-        self.preproces_pair_docs = preproces_pair_docs
-        self.topics = set()
-        self.index = 0
+class DittoPairDocuments:
+    def __init__(self, preprocess_pair_docs: list[dict]):
+        self.preprocess_pair_docs = preprocess_pair_docs
+        self.topics = self._extract_topics()
+        self._iterator_index = 0
 
-        for processed_doc in preproces_pair_docs:
-            self.topics.update(processed_doc['text_grouped_by_topics'].keys())
-        self.topics = list(self.topics)
-
+    def _extract_topics(self) -> list[str]:
+        topics = set()
+        for doc in self.preprocess_pair_docs:
+            topics.update(doc.get('text_grouped_by_topics', {}).keys())
+        return sorted(topics)
 
     def __iter__(self):
-        self.index = 0
+        self._iterator_index = 0
         return self
-    
-    def __next__(self):
-        if self.index >= len(self.topics):
-            raise StopIteration
-        
-        current_topic = self.topics[self.index]
-        self.index += 1
 
-        results = [f'{current_topic}\n']
-        for doc in self.preproces_pair_docs:
+    def __next__(self) -> str:
+        if self._iterator_index >= len(self.topics):
+            raise StopIteration
+
+        topic = self.topics[self._iterator_index]
+        self._iterator_index += 1
+
+        return self._format_topic_comparison(topic)
+
+    def _format_topic_comparison(self, topic: str) -> str:
+        lines = [f"{topic}\n"]
+        for doc in self.preprocess_pair_docs:
             doc_id = doc['id']
-            text = doc['text_grouped_by_topics'].get(current_topic, 'vazio')
-            results.append(f"ID DOCUMENTO - ({doc_id})\n{text}\n")
-        return "\n".join(results)
-    
+            text = doc.get("text_grouped_by_topics", {}).get(topic, "Tópico NÃO PRESENTE nesse texto...")
+            lines.append(f"DOCUMENT ({doc_id})\n{text}\n")
+        return "\n".join(lines)
 
     def generate_text_to_compare(self) -> str:
-        sections = []
-        for topic in self.topics:
-            section = f"{topic}:\n"
-            for document in self.preproces_pair_docs:
-                doc_id = document["id"]
-                text = document["text_grouped_by_topics"].get(topic, "vazio")
-                section += f"ID DOCUMENTO - ({doc_id})\n{text}\n"
-            sections.append(section)
-        return "\n\n".join(sections)
-
+        return "\n".join(
+            self._format_topic_comparison(topic) 
+            for topic in self.topics
+        )
 
 
 class JoogleDitto:
